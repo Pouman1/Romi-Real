@@ -74,17 +74,23 @@ public class RobotContainer {
         .onFalse(new PrintCommand("Button A Released"));
 
     m_xboxcontroller.a().whileTrue(Commands.run(
-      () -> mServoArm.setAngle(720)));
-    
+      () -> mServoArm.setAngle(180)));
     
     m_xboxcontroller.x().whileTrue(Commands.run(
       () -> mServoArm.setAngle(0)));
 
     m_xboxcontroller.y().whileTrue(Commands.run(
-      () -> mServoArm.setAngle2(720)));
+      () -> mServoArm.setAngle2(180)));
 
     m_xboxcontroller.b().whileTrue(Commands.run(
       () -> mServoArm.setAngle2(0)));
+
+    m_xboxcontroller.leftBumper().whileTrue(Commands.run(
+      () -> mServoArm.setAngle(90)));
+
+    m_xboxcontroller.rightBumper().whileTrue(Commands.run(
+      () -> mServoArm.setAngle2(90)));
+
     // Setup SmartDashboard options
     m_chooser.setDefaultOption("Auto Routine Distance", new AutonomousDistance(m_drivetrain));
     m_chooser.addOption("Auto Routine Time", new AutonomousTime(m_drivetrain));
